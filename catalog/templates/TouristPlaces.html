@@ -1,0 +1,87 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "nav.html" %}
+
+
+	
+
+	<div class="row banner menu inside-content-1">
+		<div class="col-md-11 col-md-offset-1 padding-none state-headers">
+			<div><h1 style="margin-right: 50px;">{{ state.name }}
+			<figure class="creator">
+				<img src="{{creator.picture}}">
+				<figcaption style="color: black;text-align: center;padding-top: 20px;">{{creator.name}}</figcaption>
+			</figure>
+			</h1>
+
+		</div>
+	</div>
+</div>
+
+
+	<div class="row inside-content-2">
+	
+		<div class="col-md-11 padding-none">
+     {% if 'username' in session %}
+			<a href="{{url_for('editState', state_id = state.id )}}">
+				<button class="btn btn-default" id="new-menu-item">
+					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Edit State
+				</button>
+			</a>
+			{% endif %}
+			<a href="{{url_for('newTouristPlace', state_id = state.id )}}">
+				<button class="btn btn-default" id="new-menu-item">
+					<span class="glyphicon glyphicon-road" aria-hidden="true"></span>Add Tourist Place
+				</button>
+			</a>
+						
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+
+
+{% for i in items %}
+							<div class="inside-content-2">
+							<div class="menu-item panel-group">
+							<div class="panel panel-success">	
+							<div class="panel-heading">
+							<div class="row">
+								<div class="col-md-8">	
+								<h3>{{i.name}}</h3>
+							</div>
+							
+							<div class="col-md-2">
+								{% if 'username' in session %}
+								<a class="btn icon-btn btn-success" href='{{url_for('editTouristPlace', state_id = state.id, menu_id=i.id ) }}'><span class="glyphicon btn-glyphicon glyphicon-edit img-circle text-default"></span>Edit</a>
+								{% endif %}
+							</div>
+							<div class="col-md-2">
+								{% if 'username' in session %}
+								<a class="btn icon-btn btn-danger" href='{{url_for('deleteTouristPlace', state_id = state.id, menu_id=i.id ) }}'><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-default"></span>Delete</a>
+								{% endif %}
+							</div>
+							</div>
+
+						</div>
+							<div class="panel-body">	
+								<p><strong>Description: </strong>{{i.description}}</p>
+								<p><strong>Distance: </strong>{{i.distance}}</p>
+								<p><strong>Language: </strong>{{i.language}}</p>
+								</div>
+							</div>
+					</div>
+				</div>
+					{% endfor %}
+
+	<div class="menu-side">
+		  <img style = "display: flex;width: 100%;margin-top: 20px;height: 100%;" src="{{url_for('static', filename='menu-side-3.jpg')}}" />
+	</div>
+	<div class="menu-side">
+		  <img style = "display: flex;width: 100%;margin-top: 20px;height: 100%" src="{{url_for('static', filename='menu-side-2.jpg')}}" />
+	</div>
+	
+	<div class="menu-side">
+		  <img style = "display: flex;width: 100%;margin-top: 20px;height: 100%" src="{{url_for('static', filename='menu-side-1.jpg')}}" />
+	</div>
+	
+{% endblock %}

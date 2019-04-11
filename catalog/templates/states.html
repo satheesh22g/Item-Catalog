@@ -1,0 +1,103 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "nav.html" %}
+
+
+
+<div class="banner-content">
+  <div class="row top-menu">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 text-right">
+          </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"></div>
+  </div>
+  <div class="row banner main">
+    <div class="col-md-1"></div>
+    <div class="col-md-11 padding-none">
+      <h1 style="color: red;font-family: cursive;font-weight: bold;">Tourist Guide India</h1>
+      
+    </div>
+  
+    
+<div class="row padding-top padding-bottom">
+  <div class="col-md-6 col-xs-3" style="margin-left:50px;">
+      <h4 style="color:black;font-size:17px;letter-spacing: 1px;margin-bottom: 30px;font-weight: bold;font-family: sans-serif;">
+      you can add a state in India</h4>
+      </div>
+      <div class="col-md-3 col-xs-3">
+       
+      <a href="{{url_for('newState')}}">
+        <button class="btn btn-default" id="new-state">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add State
+        </button>
+      </a>
+     
+    
+  </div>
+
+</div>
+        
+      
+</div>
+
+
+
+
+     
+     <div class="auto-slide" style="margin-top: 210px;">
+   <img src="{{url_for('static', filename='main-slide-3.jpg')}}" />
+    <img src="{{url_for('static', filename='main-slide-2.jpg')}}" />
+     <img src="{{url_for('static', filename='main-slide-1.jpg')}}" />
+     <img src="{{url_for('static', filename='main-slide-4.jpg')}}" />
+    <img src="{{url_for('static', filename='main-slide-5.jpg')}}" />
+     <img src="{{url_for('static', filename='main-slide-6.jpg')}}" />
+      
+</div>    
+
+    
+
+  
+  
+</div>
+  
+  
+
+
+  
+
+	<div class="side-nav">
+	{% for state in states %}
+	
+	<div class="row state-list">
+		<a href = "{{url_for('showPlace', state_id = state.id)}}">
+			
+					
+						<div class="col-md-8">
+						<h3 style="font-family: sans-serif;color: blue;">{{state.name}}</h3></div>
+						<div class="col-md-3">
+{% if 'username' in session %}
+						<a href="{{url_for('deleteState', state_id = state.id )}}">
+
+				<button class="btn btn-default delete" id="delete-state" style="background-color: rgba();">
+
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+				</button>
+			</a>
+{% endif %}
+    </div>
+					
+				
+			
+		</a>
+
+	</div>
+	
+
+	{% endfor %}
+
+
+
+	
+{% endblock %}

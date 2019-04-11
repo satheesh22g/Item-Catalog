@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "nav.html" %}
+	
+	<div class="row banner menu inside-content-1">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Menu Item</h1>
+		</div>
+	</div>
+	<div class="row inside-content-2">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" style="text-transform: capitalize;" maxlength="100" class="form-control" pattern="([^\s][A-z0-9\s]+)" name="name" value="{{item.name }}" required>
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" pattern="([^\s][A-z0-9\s]+)" name="description" required>{{item.description}}</textarea>
+
+					<label for="distance">Distance:</label>
+					<div class="input-group">
+						<input type ="text" maxlength="100" class="form-control" pattern="([^\s][A-z0-9\s]+)" name="distance" value="{{item.distance}}" required>
+					</div>
+					<label for="name">Language:</label>
+					<input type ="text" maxlength="100" style="text-transform: capitalize;" class="form-control" pattern="([^\s][A-z0-9\s]+)" name="language" value="{{item.language }}" required>
+					
+					<button type="submit" class="button1" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					
+				</div>
+			</form>
+			<a href = '{{url_for('showPlace',state_id=state_id)}}'>
+						<button class="button1">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+		</div>
+	</div>
+   <div class="menu-side">
+		  <img style = "display: flex;width: 100%;margin-top: 20px;height: 100%;" src="{{url_for('static', filename='menu-side-6.jpg')}}" />
+	</div>
+	
+	
+
+	
+	
+{% endblock %}

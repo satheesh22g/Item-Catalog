@@ -1,0 +1,44 @@
+<div class="nav navbar-fixed-top navbar-inverse container-fluid">
+
+
+    
+        <div class="col-md-3 navbar-left">
+          <a href="{{url_for('showState')}}">
+           <button class="btn btn-default"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</button>
+          </a>
+        </div>
+<div class = "flash col-md-3">
+          {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+      
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+        <div class="col-md-6 text-right">
+          
+          {% if 'username' not in session %}
+          <ul class="navbar-right">
+          
+      <li class="col-md-2"><a href="{{url_for('showLogin')}}"><button class="btn btn-default">Login</button> </a></li>
+      {% else %}
+      
+      <li class="col-md-8 col-xs-5"><p class="text-primary mr-sm-2" style="color: green;font-weight: bold;font-size: 24px;">{{ session.username }}</p></li>
+      <li class="col-md-2 col-xs-3"><img style="border-radius: 50%;width: 50px;" src="{{ session.picture }}"></li>
+      <li class="col-md-2 col-xs-2"><a href="{{url_for('gdisconnect')}}"><button class="btn btn-default">Logout </button></a></li></ul>
+      {% endif %}
+
+  </div>
+  
+  
+ </div>
+
+

@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "nav.html" %}
+	<div class="row">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu inside-content-1">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit {{state.name}}</h1>
+		</div>
+	</div>
+	<div class="row inside-content-2">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="{{ url_for('editState',state_id = state.id)}}" method = "post">
+				<div class="form-group">
+					<label for="name">Name of State:</label>
+					<input type ="text" class="form-control" style="text-transform: capitalize;" name="name" value="{{state.name }}" required pattern="([^\s][A-z0-9\s]+)">
+					<div class="padding-bottom"></div>
+					<button type="submit" class="button1" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					
+				</div>
+			</form>
+			<a href = '{{url_for('showState')}}'>
+						<button class="button1">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+		</div>
+	</div>
+
+	<div class="menu-side">
+		  <img style = "display: flex;width: 100%;margin-top: 20px;height: 100%;" src="{{url_for('static', filename='menu-side-4.jpg')}}" />
+	</div>
+
+
+	
+{% endblock %}

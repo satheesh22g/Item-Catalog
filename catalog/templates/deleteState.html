@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "nav.html" %}
+<div class="inside-content-2">
+	
+<h2> Are you sure you want to delete {{state.name}}? </h2>
+
+<form action="#" method = 'post'>
+
+	<button type="submit" class="button1" id="submit" type="submit">
+	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+	
+</form>
+<a href = '{{url_for('showState')}}'>
+		<button class="button1">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+	</a>
+
+
+</div>
+
+{% endblock %}
