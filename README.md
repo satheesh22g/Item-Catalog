@@ -1,6 +1,6 @@
-# Item Catalog
+# Item Catalog - Tourism App
 ### Project Overview
-> The Item Catalog project consists of developing an application that provides a list of items within a variety of categories, as well as provide a user registration and authentication system. This project uses persistent data storage to create a RESTful web application that allows users to perform Create, Read, Update, and Delete operations
+> This project consists of developing an application that provides a list of items within a variety of categories, as well as provide a user registration and authentication system. This project uses persistent data storage to create a RESTful web application that allows users to perform Create, Read, Update, and Delete operations
 
 ### What Will I Learn?
   * Develop a RESTful web application using the Python framework Flask
