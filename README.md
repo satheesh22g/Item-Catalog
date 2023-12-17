@@ -73,9 +73,3 @@ $ Python project.py
 ```
 /state/<int:state_id>/menu/JSON
 ```
-
-
-# catalog
-# Item-Catalog
-# Item-Catalog
-# Item-Catalog
